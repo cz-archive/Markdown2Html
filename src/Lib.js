@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Result} from "antd";
-import {Provider} from "mobx-react";
+import { Result } from "antd";
+import { Provider } from "mobx-react";
 
 import "./index.css";
 
@@ -15,11 +15,11 @@ import dialog from "./store/dialog";
 import imageHosting from "./store/imageHosting";
 import view from "./store/view";
 
-import {isPC} from "./utils/helper";
+import { isPC } from "./utils/helper";
 import appContext from "./utils/appContext";
 import SvgIcon from "./icon";
-import {solveWeChatMath, solveZhihuMath, solveHtml} from "./utils/converter";
-import {LAYOUT_ID} from "./utils/constant";
+import { solveWeChatMath, solveZhihuMath, solveHtml } from "./utils/converter";
+import { LAYOUT_ID } from "./utils/constant";
 
 class Lib extends Component {
   getWeChatHtml() {
@@ -51,7 +51,7 @@ class Lib extends Component {
       onStyleBlur,
       onStyleFocus,
       token,
-      useImageHosting,
+      useImageHosting
     } = this.props;
     const appCtx = {
       defaultTitle,
@@ -63,7 +63,7 @@ class Lib extends Component {
       onStyleBlur,
       onStyleFocus,
       token,
-      useImageHosting,
+      useImageHosting
     };
     return (
       <Provider
@@ -93,8 +93,14 @@ class Lib extends Component {
           <Result
             icon={<SvgIcon name="smile" style={style.svgIcon} />}
             title="请使用 PC 端打开排版工具"
-            subTitle="更多 Markdown Nice 信息，请扫码关注公众号「编程如画」"
-            extra={<img alt="" style={{width: "100%"}} src="https://my-wechat.mdnice.com/wechat.jpg" />}
+            subTitle="请扫码关注公众号「编程如画」"
+            extra={
+              <img
+                alt=""
+                style={{ width: "100%" }}
+                src="https://my-wechat.mdnice.com/wechat.jpg"
+              />
+            }
           />
         )}
       </Provider>
@@ -105,8 +111,8 @@ class Lib extends Component {
 const style = {
   svgIcon: {
     width: "72px",
-    height: "72px",
-  },
+    height: "72px"
+  }
 };
 
 Lib.defaultProps = {
@@ -127,8 +133,8 @@ Lib.defaultProps = {
     isQiniuyunOpen: true,
     isAliyunOpen: true,
     isGiteeOpen: true,
-    isGitHubOpen: true,
-  },
+    isGitHubOpen: true
+  }
 };
 Lib.propTypes = {
   defaultTitle: PropTypes.string,
@@ -148,8 +154,8 @@ Lib.propTypes = {
     isQiniuyunOpen: PropTypes.bool,
     isAliyunOpen: PropTypes.bool,
     isGiteeOpen: PropTypes.bool,
-    isGitHubOpen: PropTypes.bool,
-  }),
+    isGitHubOpen: PropTypes.bool
+  })
 };
 
 export default Lib;
